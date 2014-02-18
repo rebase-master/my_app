@@ -1,0 +1,1 @@
+MongoMapper.database = "mp-#{Rails.env}"
