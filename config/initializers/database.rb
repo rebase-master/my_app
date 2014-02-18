@@ -1,1 +1,1 @@
-MongoMapper.database = "mp-#{Rails.env}"
+#MongoMapper.database = "db_name-#{Rails.env}"

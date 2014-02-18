@@ -3,4 +3,4 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
 MyApp::Application.initialize!
-config.gem 'mongo_mapper'
+#config.gem 'mongo_mapper'
