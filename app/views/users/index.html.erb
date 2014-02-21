@@ -1,0 +1,35 @@
+
+<div class="round">
+ <% if !flash[:notice].blank? %>
+      <div class="bg-success text-center">
+        <p><%= flash[:notice] %></p>
+      </div>
+  <% end %>
+  <%= link_to("Add new user", {:action => 'new'}, :class => 'btn btn-primary') %><br /><br />
+  <br />
+  <table class="table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>username</th>
+      <th>last name</th>
+      <th class="text-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+    <tr>
+      <% id = (user.id) %>
+      <td><%= id %></td>
+      <td class="text-center"><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td class="actions">
+        <%= link_to('Show', {:action => 'show', :id => user.username}, :class => 'btn btn-small') %>
+        <%= link_to('Edit', {:action => 'edit', :id => user.username}, :class => 'btn btn-small') %>
+        <%= link_to('Delete', {:action => 'delete', :id => user.username}, :class => 'btn btn-small') %>
+      </td>
+    </tr>
+  <% end%>
+  </tbody>
+  </table>
+</div>

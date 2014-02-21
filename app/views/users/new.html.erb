@@ -1,0 +1,31 @@
+<h1>Sign Up</h1>
+<%=
+    #form_tag("/create", method: "post") do |f|
+    form_for(:user, :url => {:action => 'create'}) do |f|
+%>
+<div class="field">
+  <table>
+    <tr>
+      <th>Userame</th>
+      <td><%= f.text_field(:username) %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= f.text_field(:email) %></td>
+    </tr>
+  </table>
+  <div class="form-buttons">
+    <%= submit_tag("Create User") %>
+  </div>
+</div>
+<% end %>
+
+
+
+<!--
+<%= label_tag(:name, "Name") %><br />
+  <%= text_field_tag(:name) %><br />
+  <%= label_tag(:email, "Email") %><br />
+  <%= text_field_tag(:email) %><br /><br />
+  <%= submit_tag("Sign up") %>
+-->

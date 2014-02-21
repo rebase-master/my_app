@@ -1,0 +1,16 @@
+
+<div class="round">
+  <% if !flash[:notice].blank? %>
+      <div class="bg-success text-center">
+        <p><%= flash[:notice] %></p>
+      </div>
+  <% end %>
+  <%= link_to("Add new user", {:action => 'new'}, :class => 'btn btn-primary') %><br /><br />
+  <br />
+  <%= link_to 'Back', {:action => 'index'} %><br />
+  <div class="container bg-info">
+    <p>Id: <%= @user.id %></p>
+    <p>username: <%= @user.username %></p>
+    <p>email: <%= @user.email %></p>
+  </div>
+</div>
