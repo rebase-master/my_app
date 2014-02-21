@@ -2,7 +2,9 @@
 <html>
 <head>
   <title><%= title %></title>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "jquery.min", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "underscore-min", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "backbone-min", "data-turbolinks-track" => true %>
   <%= render 'layouts/stylesheets' %>
   <%= csrf_meta_tags %>
 </head>

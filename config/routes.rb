@@ -3,14 +3,20 @@ MyApp::Application.routes.draw do
   #get "users/check"
   root :to => "pages#home", via: [:get]
 
-  match '/contact', :to => 'pages#contact', via: [:get]
-  match '/about', :to => 'pages#about', via: [:get]
-  match '/signup', :to => 'users#new', via: [:get]
-  match '/show', :to => 'users#show', via: [:get]
-  match '/new', :to => 'users#new', via: [:get]
-  match '/check', :to => 'users#check', via: [:get]
-  get "pages/home"
-  match ':controller(/:action(/:id))', via: [:get, :post]
+  resources :users do
+    member do
+      get :delete   #delete_user_path(:id)
+    end
+  end
+  #match ':controller(/:action(/:id))', via: [:get, :post]
+
+  #match '/contact', :to => 'pages#contact', via: [:get]
+  #match '/about', :to => 'pages#about', via: [:get]
+  #match '/signup', :to => 'users#new', via: [:get]
+  #match '/show', :to => 'users#show', via: [:get]
+  #match '/new', :to => 'users#new', via: [:get]
+  #match '/check', :to => 'users#check', via: [:get]
+  #get "pages/home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
