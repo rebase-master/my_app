@@ -12,6 +12,13 @@ class UsersController < ApplicationController
     #@user = User.first.username
     #user = User.new(name: params[:name], email: params[:email])
     @users = User.order("id ASC")
+    respond_to do |format|
+      if request.xhr?
+        format.json { render json: @users}
+      else
+        format.html{}
+      end
+    end
     #if user.nil?
     #  @user = user.get_name
     #else

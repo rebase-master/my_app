@@ -6,6 +6,33 @@
       </div>
   <% end %>
   <%= link_to("Add new user", {:action => 'new'}, :class => 'btn btn-primary') %><br /><br />
+  <div class="page"></div>
+  <script type="text/template" id="user-list-tmpl">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%% _.each(users, function(user){ %>
+        <tr>
+          <td><%%= user.get('id') %></td>
+          <td><%%= user.get('username') %></td>
+          <td><%%= user.get('email') %></td>
+          <td class="actions">
+            <a class="btn btn-primary btn-xs" href="http://localhost:3000/users/<%%= user.get('username') %>">Show</a>
+            <a class="btn btn-primary btn-xs" href="http://localhost:3000/users/<%%= user.get('username') %>/edit">Edit</a>
+            <a class="btn btn-primary btn-xs" href="http://localhost:3000/users/<%%= user.get('username') %>/delete">Show</a>
+          </td>
+        </tr>
+      <%% }) %>
+      </tbody>
+    </table>
+  </script>
   <br />
   <table class="table-bordered table-striped table-hover">
     <thead>
@@ -24,9 +51,9 @@
       <td class="text-center"><%= user.username %></td>
       <td><%= user.email %></td>
       <td class="actions">
-        <%= link_to('Show', {:action => 'show', :id => user.username}, :class => 'btn btn-small') %>
-        <%= link_to('Edit', {:action => 'edit', :id => user.username}, :class => 'btn btn-small') %>
-        <%= link_to('Delete', {:action => 'delete', :id => user.username}, :class => 'btn btn-small') %>
+        <%= link_to('Show', {:action => 'show', :id => user.username}, :class => 'btn btn-primary btn-xs') %>
+        <%= link_to('Edit', {:action => 'edit', :id => user.username}, :class => 'btn btn-primary btn-xs') %>
+        <%= link_to('Delete', {:action => 'delete', :id => user.username}, :class => 'btn btn-primary btn-xs') %>
       </td>
     </tr>
   <% end%>

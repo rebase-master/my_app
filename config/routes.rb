@@ -1,7 +1,6 @@
 MyApp::Application.routes.draw do
-  get "users/new"
   #get "users/check"
-  root :to => "pages#home", via: [:get]
+  root :to => "users#index", via: [:get]
 
   resources :users do
     member do
